@@ -1,15 +1,64 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="UTF-8" /><title>zelda_like</title>
-<script
-src="//cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.js"></script>
+    <title>zelda_like</title>
+    <style>
 
-<style type="text/css"> body { margin: 0; }</style>
-<link type="text/css" rel="stylesheet" href="style.css">
+        /* changement de scene*/
+
+
+        body {
+            background-image: url('assets/ecran_titre.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        button {
+            font-size: 0; /* cacher le texte du bouton */
+            padding: 0;
+            margin: 12px;
+            border: none;
+            cursor: pointer;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        #jouer {
+            background-image: url('assets/bouton_start.png');
+            width: 200px;
+            height: 100px;
+            margin-top: 700px;
+
+
+        }
+
+        #quitter {
+            background-image: url('assets/bouton_quit.png');
+            width: 200px;
+            height: 100px;
+
+
+        }
+    </style>
 </head>
 <body>
-    <script src="script.js" async></script>
+
+    <button id="jouer"></button>
+    <button id="quitter"></button>
+
+    <script>
+        // Ajouter un événement de clic au bouton Jouer pour rediriger vers une autre page
+        document.getElementById("jouer").addEventListener("click", function() {
+            window.location.href = "scene_002.html";
+        });
+
+        // Ajouter un événement de clic au bouton Quitter pour fermer la page
+        document.getElementById("quitter").addEventListener("click", function() {
+            window.close();
+        });
+    </script>
 </body>
 </html>
-    

@@ -39,7 +39,7 @@ function preload() {
 	this.load.image ('marchand','assets/spritesheet_marchand.png')
 	this.load.image ('barman','assets/spritesheet_barman.png')
 	this.load.image ('UIlife','assets/UI_life_1.png')
-	this.Load.image ('bullet','assets/bullet.png')
+	this.load.image ('bullet','assets/bullet.png')
 } 
 
 // Création des éléments de jeu
@@ -56,7 +56,8 @@ function create() {
 	this.add.image(2000,190, "marchand")
 	this.add.image(2400,600, "barman")
 	this.add.image(50,50, "UIlife").setOrigin(0,0).setScrollFactor(0);
-	this.add.image(75,50, "bullet").setOrigin(0,0).setScrollFactor(0);
+	this.add.image(300,50, "bullet").setOrigin(0,0).setScrollFactor(0);
+
 
 
 
