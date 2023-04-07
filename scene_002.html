@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>zelda_like</title>
+    <style>
+
+body {
+            background-image: url('assets/scene_entre.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            width: 1920px;
+            height: 1080px;
+
+        }
+
+        button {
+            font-size: 0; /* cacher le texte du bouton */
+            padding: 0;
+            margin: 12px;
+            border: none;
+            cursor: pointer;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        #jouer {
+            background-image: url('assets/bouton_start.png');
+            width: 200px;
+            height: 100px;
+            margin-top: 950px;
+            margin-left: 580px;
+
+
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <button id="jouer"></button>
+
+
+    <script>
+        // Ajouter un événement de clic au bouton Jouer pour rediriger vers une autre page
+        document.getElementById("jouer").addEventListener("click", function() {
+            window.location.href = "index.html";
+        });
+
+    </script>
+</body>
+</html>
