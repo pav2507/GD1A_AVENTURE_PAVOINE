@@ -44,8 +44,6 @@ function preload() {
 	this.load.image ('interraction_sherif','assets/interraction_sherif.png')
 	this.load.image ('interraction_marchand','assets/interraction_marchand.png')
 	this.load.image ('interraction_barman','assets/interraction_barman.png')
-	this.load.image ('interraction_random1','assets/interraction_barman.png')
-	this.load.image ('interraction_random2','assets/interraction_barman.png')
 } 
 
 // Création des éléments de jeu
@@ -65,7 +63,8 @@ function create() {
 		this.add.image(2000,190,"interraction_marchand")
 	})
 	this.add.image(2400,600, "barman").setInteractive().on("pointerdown",()=>{
-		this.add.image(2000,190,"interraction_barman")
+		this.add.image(2400,600,"interraction_barman")
+	})
 	
 	
 	this.add.image(0,332, "UIbase").setOrigin(0,0).setScrollFactor(0);
