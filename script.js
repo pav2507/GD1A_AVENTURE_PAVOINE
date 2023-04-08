@@ -125,24 +125,6 @@ function create() {
 	// Configuration des touches directionnelles pour le mouvement du personnage
 	this.cursors = this.input.keyboard.createCursorKeys();
 
-	// Créer les éléments de l'interface ici
-	/*var playButton = this.add.text(400, 300, 'Jouer', { fontSize: '32px', fill: '#FFF' });
-	playButton.setOrigin(0.5);
-	playButton.setInteractive();
-	playButton.on('pointerdown', function () {
-
-		// Lancer le jeu ici
-
-	});
-
-	var exitButton = this.add.text(400, 400, 'Quitter', { fontSize: '32px', fill: '#FFF' });
-	exitButton.setOrigin(0.5);
-	exitButton.setInteractive();
-	exitButton.on('pointerdown', function () {
-		// Quitter le jeu ici
-		window.location.href = "about:blank";
-	});
-	*/
 
     this.physics.world.setBounds(0, 0, 4464, 2592);
     this.cameras.main.setBounds(0, 0, 4464, 2592);
