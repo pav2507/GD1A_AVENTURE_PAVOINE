@@ -44,6 +44,9 @@ function preload() {
 	this.load.image ('interraction_sherif','assets/interraction_sherif.png')
 	this.load.image ('interraction_marchand','assets/interraction_marchand.png')
 	this.load.image ('interraction_barman','assets/interraction_barman.png')
+	this.load.image ('interraction_mechant1','assets/interraction_mechant1.png')
+	this.load.image ('interraction_mechant2','assets/interraction_mechant2.png')
+	this.load.image ('interraction_mechant3','assets/interraction_mechant3.png')
 } 
 
 // Création des éléments de jeu
@@ -51,11 +54,31 @@ function create() {
 
 	this.add.image(2232, 1296, "background");
 
-	this.add.image(1500,2000, "mechant1")
-	this.add.image(2600,1600, "mechant2")
-	this.add.image(3200,2300, "mechant3")
-	this.add.image(3250,2250, "mechant1")
-	this.add.image(3250,2350, "mechant2")
+	this.add.image(1500,2000, "mechant1").setInteractive().on("pointerdown",()=>{
+		this.interractionmechant1=this.add.image(1500,2000,"interraction_mechant1").setInteractive().on("pointerdown",()=>{
+			this.interractionmechant1.destroy()
+		})
+	})
+	this.add.image(2600,1600, "mechant2").setInteractive().on("pointerdown",()=>{
+		this.interractionmechant2=this.add.image(2600,1600,"interraction_mechant2").setInteractive().on("pointerdown",()=>{
+			this.interractionmechant2.destroy()
+		})
+	})
+	this.add.image(3200,2300, "mechant3").setInteractive().on("pointerdown",()=>{
+		this.interractionmechant3=this.add.image(3200,2300,"interraction_mechant3").setInteractive().on("pointerdown",()=>{
+			this.interractionmechant3.destroy()
+		})
+	})
+	this.add.image(3250,2250, "mechant1").setInteractive().on("pointerdown",()=>{
+		this.interractionmechant1b=this.add.image(3250,2250,"interraction_mechant1").setInteractive().on("pointerdown",()=>{
+			this.interractionmechant1b.destroy()
+		})
+	})
+	this.add.image(3250,2350, "mechant2").setInteractive().on("pointerdown",()=>{
+		this.interractionmechant2b=this.add.image(3250,2350,"interraction_mechant2").setInteractive().on("pointerdown",()=>{
+			this.interractionmechant2b.destroy()
+		})
+	})
 	this.add.image(1350,500, "sherif").setInteractive().on("pointerdown",()=>{
 		this.interractionsherif=this.add.image(1350,500,"interraction_sherif").setInteractive().on("pointerdown",()=>{
 			this.interractionsherif.destroy()
