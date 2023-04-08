@@ -47,6 +47,7 @@ function preload() {
 	this.load.image ('interraction_mechant1','assets/interraction_mechant1.png')
 	this.load.image ('interraction_mechant2','assets/interraction_mechant2.png')
 	this.load.image ('interraction_mechant3','assets/interraction_mechant3.png')
+	this.load.audio ('musique_theme', 'assets/western_music.mp3')
 } 
 
 // Création des éléments de jeu
@@ -102,14 +103,8 @@ function create() {
 	this.add.image(620,355, "UIbullet").setOrigin(0,0).setScrollFactor(0);
 	this.add.image(300,355, "UIlife").setOrigin(0,0).setScrollFactor(0);
 
-
-
-
-
-
-
-	
-
+	var music = this.sound.add("musique_theme");
+	music.play();
 
 	//ajout de la map
 	const map = this.add.tilemap("map");
@@ -165,7 +160,7 @@ function create() {
 // Mise à jour de la scène
 function update() {
 
-	console.log(this.player.x, this.player.y	)
+	//console.log(this.player.x, this.player.y	)
 	// Réinitialisation de la vitesse du personnage
 	this.player.setVelocity(0);
 
