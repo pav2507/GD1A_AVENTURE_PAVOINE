@@ -57,13 +57,19 @@ function create() {
 	this.add.image(3250,2250, "mechant1")
 	this.add.image(3250,2350, "mechant2")
 	this.add.image(1350,500, "sherif").setInteractive().on("pointerdown",()=>{
-		this.add.image(1350,500,"interraction_sherif")
+		this.interractionsherif=this.add.image(1350,500,"interraction_sherif").setInteractive().on("pointerdown",()=>{
+			this.interractionsherif.destroy()
+		})
 	})
 	this.add.image(2000,190, "marchand").setInteractive().on("pointerdown",()=>{
-		this.add.image(2000,190,"interraction_marchand")
+		this.interractionmarchand=this.add.image(2000,190,"interraction_marchand").setInteractive().on("pointerdown",()=>{
+			this.interractionmarchand.destroy()
+		})	
 	})
 	this.add.image(2400,600, "barman").setInteractive().on("pointerdown",()=>{
-		this.add.image(2400,600,"interraction_barman")
+		this.interractionbarman=this.add.image(2400,600,"interraction_barman").setInteractive().on("pointerdown",()=>{
+			this.interractionbarman.destroy()
+		})
 	})
 	
 	
