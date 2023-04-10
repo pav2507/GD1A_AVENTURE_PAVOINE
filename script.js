@@ -54,10 +54,12 @@ function collisionHandler(player, mechant1) {
 	mechant1.anims.stop();
 	mechant1.disableBody(true, true);
 	
-	// Active le collec_bullet après la mort de l'ennemi
-	this.piece.enableBody(true, Phaser.Math.Between(100, 700), Phaser.Math.Between(100, 500), true, true);
-	this.piece.setPosition(1500, 2000);
+	// Ajouter le collectible
+	var piece = this.physics.add.sprite(mechant1.x,mechant1.y, 'collec_bullet');
   
+
+
+
   
 }
 
@@ -94,27 +96,27 @@ function create() {
 
 	this.add.image(2232, 1296, "background");
 
-	this.add.image(1500,2000, "mechant1").setInteractive().on("pointerdown",()=>{ // apparition mechant + cliquable pour faire apparaitre panneau de dialogue
+	this.mechant1 = this.physics.add.sprite(1500, 2000, 'mechant1').setInteractive().on("pointerdown",()=>{ // apparition mechant + cliquable pour faire apparaitre panneau de dialogue
 		this.interractionmechant1=this.add.image(1500,2000,"interraction_mechant1").setInteractive().on("pointerdown",()=>{
 			this.interractionmechant1.destroy()
 		})
 	})
-	this.add.image(2600,1600, "mechant2").setInteractive().on("pointerdown",()=>{// apparition mechant + cliquable pour faire apparaitre panneau de dialogue
+	this.mechant2 = this.physics.add.sprite(2600,1600, 'mechant2').setInteractive().on("pointerdown",()=>{// apparition mechant + cliquable pour faire apparaitre panneau de dialogue
 		this.interractionmechant2=this.add.image(2600,1600,"interraction_mechant2").setInteractive().on("pointerdown",()=>{
 			this.interractionmechant2.destroy()
 		})
 	})
-	this.add.image(3200,2300, "mechant3").setInteractive().on("pointerdown",()=>{// apparition mechant + cliquable pour faire apparaitre panneau de dialogue
+	this.mechant3 = this.physics.add.sprite(3200,2300, 'mechant3').setInteractive().on("pointerdown",()=>{// apparition mechant + cliquable pour faire apparaitre panneau de dialogue
 		this.interractionmechant3=this.add.image(3200,2300,"interraction_mechant3").setInteractive().on("pointerdown",()=>{
 			this.interractionmechant3.destroy()
 		})
 	})
-	this.add.image(3250,2250, "mechant1").setInteractive().on("pointerdown",()=>{// apparition mechant + cliquable pour faire apparaitre panneau de dialogue
+	this.mechant4 = this.physics.add.sprite(3250,2250, 'mechant1').setInteractive().on("pointerdown",()=>{// apparition mechant + cliquable pour faire apparaitre panneau de dialogue
 		this.interractionmechant1b=this.add.image(3250,2250,"interraction_mechant1").setInteractive().on("pointerdown",()=>{
 			this.interractionmechant1b.destroy()
 		})
 	})
-	this.add.image(3250,2350, "mechant2").setInteractive().on("pointerdown",()=>{// apparition mechant + cliquable pour faire apparaitre panneau de dialogue
+	this.mechant5 = this.physics.add.sprite(3250,2350, 'mechant2').setInteractive().on("pointerdown",()=>{// apparition mechant + cliquable pour faire apparaitre panneau de dialogue
 		this.interractionmechant2b=this.add.image(3250,2350,"interraction_mechant2").setInteractive().on("pointerdown",()=>{
 			this.interractionmechant2b.destroy()
 		})
@@ -136,11 +138,11 @@ function create() {
 	})
 	
 	// faire apparraitre les ui, qui bougeront au meme rythme que le personnage principal
-	this.add.image(0,332, "UIbase").setOrigin(0,0).setScrollFactor(0);// ui de base
-	this.add.image(570,355, "UIbullet").setOrigin(0,0).setScrollFactor(0);// ui de balle 
-	this.add.image(670,355, "UIbullet").setOrigin(0,0).setScrollFactor(0);// ui de balle 
-	this.add.image(620,355, "UIbullet").setOrigin(0,0).setScrollFactor(0);// ui de balle 
-	this.add.image(300,355, "UIlife").setOrigin(0,0).setScrollFactor(0);// ui de vie 
+	this.add.image(0,332, "UIbase").setOrigin(0,0).setScrollFactor(0).setDepth(10);// ui de base //setDepth a 10 pour etre moins porfond que le reste du jeu, je laisse une marge au cas ou.
+	this.add.image(570,355, "UIbullet").setOrigin(0,0).setScrollFactor(0).setDepth(10);// ui de balle //setDepth a 10 pour etre moins porfond que le reste du jeu, je laisse une marge au cas ou.
+	this.add.image(670,355, "UIbullet").setOrigin(0,0).setScrollFactor(0).setDepth(10);// ui de balle //setDepth a 10 pour etre moins porfond que le reste du jeu, je laisse une marge au cas ou.
+	this.add.image(620,355, "UIbullet").setOrigin(0,0).setScrollFactor(0).setDepth(10);// ui de balle //setDepth a 10 pour etre moins porfond que le reste du jeu, je laisse une marge au cas ou.
+	this.add.image(300,355, "UIlife").setOrigin(0,0).setScrollFactor(0).setDepth(10);// ui de vie //setDepth a 10 pour etre moins porfond que le reste du jeu, je laisse une marge au cas ou.
 
 	var music = this.sound.add("musique_theme"); // ajout d'une musique d'ambiance (https://www.youtube.com/watch?v=JBkRe_m21Z0)
 	music.play();
@@ -196,20 +198,12 @@ function create() {
 
 
 
-	this.mechant1 = this.physics.add.sprite(1500, 2000, 'mechant1');
-    this.mechant1.setScale(1); // changer l'échelle de l'ennemi
-    this.mechant1.setCollideWorldBounds(true); // s'assurer que l'ennemi reste dans la zone de jeu
-    this.anims.create({
-        frames: this.anims.generateFrameNumbers('mechant1', { start: 0, end: 7 }),
-        frameRate: 4,
-        repeat: -1
-    });
-    
-	 // Ajouter le collectible
-	this.piece = this.physics.add.sprite(0, 0, 'collec_bullet');
-	this.piece.disableBody(true, true);
+	
 
-	this.physics.add.collider(this.player, this.mechant1, collisionHandler, null, this);
+
+
+
+	this.physics.add.collider(this.player, [this.mechant1,this.mechant2,this.mechant3,this.mechant4,this.mechant5], collisionHandler, null, this);
 
     
 
