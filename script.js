@@ -25,6 +25,7 @@ var collec_bullet= true;
 var barreDeVie;
 var mechant1 = true;
 var key = {};
+let playerMoney = 0;
 
 const SPEED = 160;
 
@@ -57,10 +58,20 @@ function collisionHandler(player, mechant1) {
 	// Ajouter le collectible
 	var piece = this.physics.add.sprite(mechant1.x,mechant1.y, 'collec_bullet');
   
+}
+function addMoney(amount) {
+	playerMoney += amount;
+	updateMoneyDisplay(); // mettre à jour l'affichage de l'argent
+}
 
-
-
-  
+function removeMoney(amount) {
+	if (playerMoney >= amount) {
+	  playerMoney -= amount;
+	  updateMoneyDisplay(); // mettre à jour l'affichage de l'argent
+	  return true; // retourner vrai si l'opération a réussi
+	} else {
+	  return false; // retourner faux si le joueur n'a pas assez d'argent
+	}
 }
 
 // Chargement des ressources
@@ -88,7 +99,7 @@ function preload() {
 	this.load.image ('interraction_mechant2','assets/interraction_mechant2.png')// panneau de dialogue mechant
 	this.load.image ('interraction_mechant3','assets/interraction_mechant3.png')// panneau de dialogue mechant
 	this.load.audio ('musique_theme', 'assets/western_music.mp3')// musique non libre de droit, trouvée sur youtube (https://www.youtube.com/watch?v=JBkRe_m21Z0)
-	this.load.image ('collec_bullet','assets/bullet.png')
+	this.load.image ('collec_bullet','assets/bullet.png')// collectable de ball 
 } 
 
 // Création des éléments de jeu
@@ -203,7 +214,7 @@ function create() {
 
 
 
-	this.physics.add.collider(this.player, [this.mechant1,this.mechant2,this.mechant3,this.mechant4,this.mechant5], collisionHandler, null, this);
+	this.physics.add.collider(this.player, [this.mechant1,this.mechant2,this.mechant3,this.mechant4,this.mechant5], collisionHandler, null, this);// si le joueur entre en collision avec ces pnj alors ils disparraissnet 
 
     
 
